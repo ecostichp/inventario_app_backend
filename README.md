@@ -4,20 +4,25 @@ Este código es la porción del backend del microservicio de la app IACele que c
 
 
 
-### 1. Crea un entorno en python.
+### 1. Actualiza PIP en python.
 ```
-python -m venv 'nombre_env'
-'nombre_env'\Scripts\activate
+python -m pip install -U Pip  
+```
+
+### 2. Crea un entorno para el proyecto.
+```
+python -m venv env
+env\Scripts\activate
 ```
 
 
-### 2. Instalar las siguientes dependencias del proyecto.
+### 3. Actualiza PIP en tu entorno e instala las dependencias del proyecto.
 ```
 python -m pip install -U Pip  
 python -m pip install -U Uvicorn FastAPI Psycopg2 SQLAlchemy PyDantic Pandas OpenPyXL
 ```
 
-### 3. Inicia el servidor.
+### 4. Inicia el servidor.
 ```
 uvicorn main:app --reload
 ```
