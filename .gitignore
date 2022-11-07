@@ -1,0 +1,6 @@
+# Para archivos caché
+__pycache__/
+*.py[cod]
+
+# Directorio del ambiente
+env/
