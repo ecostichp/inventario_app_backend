@@ -26,6 +26,10 @@ python -m pip install -U Uvicorn FastAPI Psycopg2 SQLAlchemy PyDantic Pandas Ope
 ```
 uvicorn main:app --reload
 ```
+Si quieres iniciar el servidor en otro host (ej: 192.168.1.82):
+```
+uvicorn main:app --reload  --host 192.168.1.82
+```
 
 
 ## La base de datos.

@@ -1,3 +1,3 @@
 from . import router
 
-from .model import Usuarios
+from .model import Authentications

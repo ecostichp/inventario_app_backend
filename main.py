@@ -31,9 +31,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Se importan los sub-modulos router y debjo de incluyen al módulo principal.
+from usuarios import router as usuarios
+app.include_router(usuarios.router)
+
 from authentication import router as authentication
 app.include_router(authentication.router)
-
 
 
 # Se crean todas las tablas en la base de datos del proyecto.

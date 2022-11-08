@@ -10,23 +10,20 @@ from database.orm import get_db
 
 # Se instancía la clase para generar el objeto 'router'
 router = APIRouter(
-    tags=["usuarios"],
+    tags=["authentication"],
     responses={404: {"description": "Not found"}},
 )
 
 
 
 # Se contruyen todas las rutas y debajo de ellas el end-point
-@router.get("/", response_model=list[schema.Usuarios])
-def get_read_all_usuarios(db: Session = Depends(get_db)):
+@router.post("/login/", response_model = schema.Authentication)
+def create_authentication(schema: schema.AuthenticationCreate, db: Session = Depends(get_db)):
 
-    usuarios = crud.read_all_usuarios(db)
-
-    return usuarios
+    return crud.create_authentication(db, schema = schema)
 
 
+@router.get("/logout", response_model = schema.Authentication)
+def delete_authentication(db: Session = Depends(get_db)):
 
-@router.post("/crear_usuario/", response_model = schema.Usuarios)
-def post_crear_usuario(schema: schema.UsuariosCreate, db: Session = Depends(get_db)):
-
-    return crud.create_usuario(db, schema = schema)
+    return crud.delete_authentication(db)

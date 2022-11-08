@@ -5,32 +5,22 @@ from . import model, schema
 
 
 
-def create_usuario(db: Session, schema: schema.UsuariosCreate):
-    usuario = model.Usuarios(
-        usuario = schema.usuario,
-        nombre_1ro = schema.nombre_1ro,
-        nombre_2do = schema.nombre_2do,
-        apellido_paterno = schema.apellido_paterno,
-        apellido_materno = schema.apellido_materno,
-        almacen = schema.almacen,
-        foto = schema.foto,
-        contraseña = schema.contraseña,
+def create_authentication(db: Session, schema: schema.AuthenticationCreate):
+    authentication = model.Authentications(
+        usuarios_id = schema.usuarios_id,
+        contraseña_hashed = schema.contraseña_hashed
         )
-    db.add(usuario)
+    db.add(authentication)
     db.commit()
-    db.refresh(usuario)
+    db.refresh(authentication)
 
-    return usuario
-
-
-
-def read_usuario_by_id(db: Session, id: int):
-    return db.query(model.Usuarios).filter(model.Usuarios.id == id).first()
+    return authentication
 
 
-def read_usuario_by_usuario(db: Session, usuario: str):
-    return db.query(model.Usuarios).filter(model.Usuarios.usuario == usuario).first()
+
+def read_authentication_by_id(db: Session, id: int):
+    return db.query(model.Authentications).filter(model.Authentications.id == id).first()
 
 
-def read_all_usuarios(db: Session):
-    return db.query(model.Usuarios).all()
+def read_all_authentications(db: Session):
+    return db.query(model.Authentications).all()

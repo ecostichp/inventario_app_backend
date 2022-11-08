@@ -2,21 +2,16 @@ from pydantic import BaseModel
 
 
 # Con este esquema se comunicará lo necesario para el modelo Cursos.
-class UsuariosBase(BaseModel):
-    usuario: str
-    nombre_1ro: str
-    nombre_2do: str
-    apellido_paterno: str
-    apellido_materno: str
-    almacen: int
-    foto: str
+class AuthenticationBase(BaseModel):
+    usuarios_id: int
+    activo: bool
 
 
-class UsuariosCreate(UsuariosBase):
-    contraseña: str
+class AuthenticationCreate(AuthenticationBase):
+    contraseña_hashed: str
 
 
-class Usuarios(UsuariosBase):
+class Authentication(AuthenticationBase):
     id: int
 
     class Config:
