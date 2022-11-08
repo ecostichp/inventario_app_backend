@@ -31,8 +31,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Se importan los sub-modulos router y debjo de incluyen al módulo principal.
-from cursos import router as cursos
-app.include_router(cursos.router)
+from authentication import router as authentication
+app.include_router(authentication.router)
 
 
 

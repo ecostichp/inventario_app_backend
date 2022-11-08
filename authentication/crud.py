@@ -5,7 +5,7 @@ from . import model, schema
 
 
 
-def create_usuario(db: Session, schema: schema.UsuarioCreate):
+def create_usuario(db: Session, schema: schema.UsuariosCreate):
     usuario = model.Usuarios(
         usuario = schema.usuario,
         nombre_1ro = schema.nombre_1ro,
