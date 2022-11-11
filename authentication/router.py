@@ -17,10 +17,11 @@ router = APIRouter(
 
 
 # Se contruyen todas las rutas y debajo de ellas el end-point
-@router.post("/login/", response_model = schema.Authentication)
+@router.post("/")
 def create_authentication(schema: schema.AuthenticationCreate, db: Session = Depends(get_db)):
-
-    return crud.create_authentication(db, schema = schema)
+    print(schema.usuario)
+    print(schema.contraseña)
+    pass
 
 
 @router.get("/logout", response_model = schema.Authentication)

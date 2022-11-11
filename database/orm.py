@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 
-dbtest = 'inventarioApp.db'
+dbtest = 'database/inventario.db'
 
 
 

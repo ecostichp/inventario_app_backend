@@ -19,7 +19,7 @@ env\Scripts\activate
 ### 3. Actualiza PIP en tu entorno e instala las dependencias del proyecto.
 ```
 python -m pip install -U Pip  
-python -m pip install -U Uvicorn FastAPI Psycopg2 SQLAlchemy PyDantic Pandas OpenPyXL
+python -m pip install -U Uvicorn FastAPI Psycopg2 SQLAlchemy PyDantic Pandas OpenPyXL iPYKernel
 ```
 
 ### 4. Inicia el servidor.

@@ -18,7 +18,15 @@ router = APIRouter(
 
 
 # Se contruyen todas las rutas y debajo de ellas el end-point
-@router.get("/usuarios", response_model=list[schema.Usuarios])
-def get_read_all_usuarios(db: Session = Depends(get_db)):
+@router.get("/")
+def home():
 
-    return crud.read_all_usuarios(db)
+    home = 'Este es el home'
+
+    return home
+
+
+@router.get("/productos", response_model=list[schema.Productos])
+def get_read_all_productos(db: Session = Depends(get_db)):
+
+    return crud.read_all_productos(db)

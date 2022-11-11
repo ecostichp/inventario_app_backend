@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
     "http://127.0.0.1:3000",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -36,6 +37,9 @@ app.include_router(usuarios.router)
 
 from authentication import router as authentication
 app.include_router(authentication.router)
+
+from conteo import router as conteo
+app.include_router(conteo.router)
 
 
 # Se crean todas las tablas en la base de datos del proyecto.
